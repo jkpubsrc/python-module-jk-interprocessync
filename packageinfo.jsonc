@@ -1,0 +1,52 @@
+{
+	"language": "python3",
+	"name": "jk_interprocesssync",
+	"version": "0.2020.4.1",
+	"meta": {
+		"description": "This python module ...",
+		"keywords": [
+			"..."
+		],
+		"license": "Apache 2.0",
+		"development_status": "alpha",
+		"authors": [
+			{
+				"name": "Jürgen Knauth",
+				"email": "pubsrc@binary-overflow.de"
+			}
+		],
+		"wiki": {
+			"page": "DevDocs:jk_interprocesssync"
+		}
+	},
+	"repositories": [
+		{
+			"type": "github",
+			"user": "jkpubsrc",
+			"project": "........",
+			"devon_publish": false
+		},
+		{
+			"type": "pypy",
+			"project": "........",
+			"devon_publish": false
+		}
+	],
+	"source": {
+		"packages": [
+			"jk_interprocesssync",
+			"jk_interprocesssync.fs"
+		],
+		"extra_data_files": [
+		],
+		"extra_binary_files": [
+		]
+	},
+	"requirements": {
+		"python_packages": [
+		],
+		"python_packages_dev": [
+		]
+	}
+}
+
