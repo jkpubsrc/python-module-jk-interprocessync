@@ -3,9 +3,11 @@
 	"name": "jk_interprocesssync",
 	"version": "0.2020.4.1",
 	"meta": {
-		"description": "This python module ...",
+		"description": "This python module provides simple synchronization and data transfer mechanisms for processes residing on the same host.",
 		"keywords": [
-			"..."
+			"interprocess",
+			"synchronization",
+			"ipc"
 		],
 		"license": "Apache 2.0",
 		"development_status": "alpha",
@@ -23,12 +25,12 @@
 		{
 			"type": "github",
 			"user": "jkpubsrc",
-			"project": "........",
+			"project": "python-module-jk-interprocessync",
 			"devon_publish": false
 		},
 		{
-			"type": "pypy",
-			"project": "........",
+			"type": "pypi",
+			"project": "jk_interprocessync",
 			"devon_publish": false
 		}
 	],

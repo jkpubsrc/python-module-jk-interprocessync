@@ -8,3 +8,4 @@ examples/__pycache__/
 examples/*.log
 testing/**/eventfile
 testing/**/queuedir/q_*
+testing/**/__pycache__/

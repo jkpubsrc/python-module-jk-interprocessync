@@ -23,7 +23,7 @@ class JSONDataEvent(object):
 		assert filePath
 		assert filePath.strip() == filePath
 
-		self.__filePathTmp = filePath + ".tmp"
+		self.__filePathTmp = "tmp_" + filePath + ".tmp"
 		self.__filePath = filePath
 		self.__t = -1 if bFireOnInit else self.__readFileState()
 		self.__bRunLoop = True

@@ -6,9 +6,9 @@ import jk_interprocesssync.fs
 
 
 
-evt = jk_interprocesssync.fs.JSONDataQueue("queuedir")
+queue = jk_interprocesssync.fs.JSONDataQueue("queuedir")
 
-for data in evt.waitG():
+for data in queue.getG():
 	print(data)
 
 

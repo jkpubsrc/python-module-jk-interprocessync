@@ -24,10 +24,11 @@ class JSONDataQueue(object):
 	def __init__(self, dirPath:str, sleepTime:int = 1, bFireOnInit:bool = True):
 		assert isinstance(dirPath, str)
 		assert os.path.isdir(dirPath)
+		assert isinstance(sleepTime, int)
 
 		self.__dirPath = dirPath
 		self.__bRunLoop = True
-		self.__sleepTime = sleepTime
+		self.__sleepTime = min(sleepTime, 0)
 
 		self.__randomID = "".join([ random.choice("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") for i in range(0, 32) ])
 
@@ -107,7 +108,7 @@ class JSONDataQueue(object):
 			self.__lastTExtraCounter += 1
 		fileName = "q_" + str(t) + "_" + self.__randomID
 		filePath = os.path.join(self.__dirPath, fileName)
-		tmpFilePath = filePath + ".tmp"
+		tmpFilePath = os.path.join(self.__dirPath, "tmp_" + fileName + ".tmp")
 
 		# write data
 
@@ -120,11 +121,11 @@ class JSONDataQueue(object):
 	#
 	# Wait for data to arrive in the queue.
 	#
-	def waitG(self):
+	def getG(self):
 		bDoSleep = False
 		while self.__bRunLoop:
-			if bDoSleep:
-				time.sleep(min(1, self.__sleepTime))
+			if bDoSleep and self.__sleepTime:
+				time.sleep(self.__sleepTime)
 
 			# update state
 
@@ -141,17 +142,21 @@ class JSONDataQueue(object):
 			# we have a change!
 
 			self.__lastHashHex = self.__currentHashHex
+			remainingItemNames = set(itemNames)
 			if self.__currentLength > 0:
 				# we have data
 				bDoSleep = False
-				bSuccess, data = self.__tryReadContentAndRemove(itemNames[-1])
-				if bSuccess:
-					# return data
-					yield data
-					continue
-				else:
-					# silently continue with next item (if available)
-					continue
+				for itemName in itemNames:
+					bSuccess, data = self.__tryReadContentAndRemove(itemName)
+					if bSuccess:
+						# return data
+						remainingItemNames.remove(itemName)
+						self.__currentLength = len(remainingItemNames)
+						yield data
+						continue
+					else:
+						# silently continue with next item (if available)
+						continue
 			else:
 				# silently continue as we have no data
 				bDoSleep = True
