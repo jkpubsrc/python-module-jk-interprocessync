@@ -8,7 +8,7 @@ This python module provides simple synchronization and data transfer mechanisms 
 
 Information about this module can be found here:
 
-* [github.org](https://github.com/jkpubsrc/....)
+* [github.org](https://github.com/jkpubsrc/python-module-jk-interprocesssync)
 * [pypi.python.org](https://pypi.python.org/pypi/jk_interprocesssync)
 
 Why this module?
@@ -161,6 +161,16 @@ queue = jk_interprocesssync.fs.JSONDataQueue("/my/dir/to/ramdisk/queuedir")
 for data in queue.getG():
 	... do something using the data...
 ```
+
+
+Alternatives
+----------------------
+
+If this synchronization mechanisms do not fit your needs you might want to have a look at other python modules:
+
+* [multiprocessing](https://docs.python.org/3/library/multiprocessing.html)
+* [Pyinotify](https://github.com/seb-m/pyinotify)
+
 
 
 Contact Information
