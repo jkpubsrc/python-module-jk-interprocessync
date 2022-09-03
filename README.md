@@ -9,7 +9,7 @@ This python module provides simple synchronization and data transfer mechanisms 
 Information about this module can be found here:
 
 * [github.com](https://github.com/jkpubsrc/python-module-jk-interprocessync)
-* [pypi.python.org](https://pypi.python.org/pypi/jk_interprocesssync)
+* [pypi.org](https://pypi.org/project/jk-interprocesssync/)
 
 Why this module?
 ----------------
